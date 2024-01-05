@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Books</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>View Books</h1>
+    <table>
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Student Contact</th>
+            <th>Book ID</th>
+            <th>Issued Date</th>
+            <th>Return Date</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="issuedBook : ${issuedBooks}">
+            <td th:text="${issuedBook.studId}"></td>
+            <td th:text="${issuedBook.studName}"></td>
+            <td th:text="${issuedBook.studCont}"></td>
+            <td th:text="${issuedBook.bookId}"></td>
+            <td th:text="${issuedBook.issueDate}"></td>
+            <td th:text="${issuedBook.returnDate}"></td>
+            <td>
+                <a th:href="@{'/deleteIssuedBook/' + ${issuedBook.studId}}" onclick="return confirmDelete();">Return</a></td>
+
+        </tr>
+    </table>
+    <a href="javascript:history.back();">Back</a>
+</div>
+<script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to return this book?");
+    }
+</script>
+</body>
+</html>

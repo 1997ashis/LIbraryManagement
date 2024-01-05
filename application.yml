@@ -1,0 +1,23 @@
+cache:
+  caches:
+    - name: librarianById
+      ttl-seconds: 600
+    - name: deleteLibrarian
+      ttl-seconds: 120
+
+server:
+  port: 8084
+
+spring:
+  data:
+    mongodb:
+      database: LibraryManagement
+      host: localhost
+      port: 27017
+    redis:
+      host: localhost
+      port: 6379
+
+
+
+

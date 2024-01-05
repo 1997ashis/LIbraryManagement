@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Librarian</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align:center;border:4px solid pink;padding:40px;font-size:20px;height:300px;width:500px">
+<h1>Edit Librarian</h1>
+<form th:action="@{/librarians/update}" th:object="${librarian}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <label for="username">Username:</label>
+    <input type="text" id="username" th:field="*{username}" required><br>
+
+    <label for="password">Password:</label>
+    <input type="text" id="password" th:field="*{password}" required><br>
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" th:field="*{address}" required><br>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" th:field="*{city}" required><br>
+
+    <label for="contactno">Contact No:</label>
+    <input type="text" id="contactno" th:field="*{contactno}" required><br>
+
+
+    <button type="submit">Update</button>
+</form>
+<br>
+<a href="/librarians">Back to List</a>
+</div>
+</body>
+</html>
